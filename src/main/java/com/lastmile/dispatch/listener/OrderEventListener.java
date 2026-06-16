@@ -35,7 +35,7 @@ public class OrderEventListener {
 
     @SqsListener(value = "${aws.sqs.dispatch-queue}", acknowledgementMode = "MANUAL")
     public void onOrderCreated(String payload,
-                               @Header("MessageId") String messageId,
+                               @Header("id") String messageId,
                                Acknowledgement acknowledgement) {
 
         log.info("Received message messageId={}", messageId);
